@@ -39,7 +39,7 @@ So assigning ``next_state = SEQ_1;`` in else of SEQ_1 state, assigning ``next_st
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
 
-![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Seq_Pass.png)
+![](https://github.com/vyomasystems-lab/challenges-yousuf122786/blob/master/Images/Screenshot_2.jpg)
 
 The updated design is checked in as seq_detect_1011_Fix.v
 
