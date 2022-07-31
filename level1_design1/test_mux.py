@@ -50,7 +50,7 @@ async def test_mux(dut):
 
 @cocotb.test()
 async def test_mux1(dut):
-    c=12
+    c=13
     d=1
     dut.sel.value = c
     dut.inp12.value =d
