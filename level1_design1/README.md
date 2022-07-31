@@ -1,9 +1,9 @@
-# Sequence Detector(Level1Design2)
+# Multiplexer (Level1_design1)
 
 ## Test Scenario *(Important)*
-- Test Inputs: 111011 and 1011011 (overlaping Sequence)
-- Expected Output: Machine should detect sequence for overlapping sequence
-- Observed Output in the DUT dut.out = Sequence not detected for overlapping sequence 
+- Test Inputs: 5'b11110,5'b01100
+- Expected Output: Multiplexer should give the output based upon the resepective select line given in input
+- Observed Output in the DUT dut.out = bug is detected
 
 Output mismatches for the above inputs proving that there is a design bug
 

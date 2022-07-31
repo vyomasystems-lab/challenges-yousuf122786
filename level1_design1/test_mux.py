@@ -50,13 +50,13 @@ async def test_mux(dut):
 
 @cocotb.test()
 async def test_mux1(dut):
-    c=13
+    c=12
     d=1
     dut.sel.value = c
     dut.inp12.value =d
     
     await Timer(2,units="ns")
     #cocotb.log.info('##### CTB: Develop your test here ########')
-    assert dut.out.value == d
+    assert dut.out.value == d  
 
 
