@@ -11,40 +11,29 @@ Output mismatches for the above inputs proving that there is a design bug
 Based on the above test input and analysing the design, we see the following test fail due to some bug
 ![](https://github.com/vyomasystems-lab/challenges-yousuf122786/blob/master/Images/Screenshot_1.jpg)
 
-      SEQ_1:
-      begin
-        if(inp_bit == 1)
-          next_state = IDLE;    <== Bug
-        else
+      
+      5'b01101: out = inp12; 
+      5'b01101: out = inp13;    <== Bug
+        
+      5'b11110: out = inp30;   <== BUG
+          
 
 
-      SEQ_101:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_1011;
-        else
-          next_state = IDLE;     <== BUG
+    
 
 
-    SEQ_1011:
-        next_state = IDLE;    <== BUG
-
-
-So assigning ``next_state = SEQ_1;`` in else of SEQ_1 state, assigning ``next_state = SEQ_10;`` in else of SEQ_101 state and putting if condition ``if(inp_bit == 1)
-        next_state = SEQ_1;
-      else
-        next_state = SEQ_10;
-      end`` in SEQ_1011 state fixed the bug.
+So assigning ``5'b01101: out = inp12;``  and assigning ``5'b11110: out = inp30; `` 
+       fixed the bug.
 
 ## Design Fix
 Updating the design and re-running the test makes the test pass.
 
 ![](https://github.com/vyomasystems-lab/challenges-yousuf122786/blob/master/Images/Screenshot_2.jpg)
 
-The updated design is checked in as seq_detect_1011_Fix.v
+The updated design is checked in as mux_fix.v
 
 ## Verification Strategy
-By drawing the FSM of the overlapping sequence(1011) and checking all possible overlapping sequences as test vectors. 
+By Observing the verilog code and checking all possible input sequences as test vectors. 
 
 ## Is the verification complete ?
 - Yes Verification is complete
