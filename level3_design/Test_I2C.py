@@ -19,13 +19,54 @@ async def test_seq_bug1(dut):
 
     # reset
     dut.rst.value = 1
+    dut.addr.value = 0b0010110
+    dut.data_in.value = 0b10101010
+    dut.enable.value = 1
+    dut.rw.value = 1
+
     await FallingEdge(dut.clk)  
     dut.rst.value = 0
     await FallingEdge(dut.clk)
-
- 
-
-    cocotb.log.info('#### CTB: Develop your test here! ######')
+    await RisingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    dut.i2c_sda.value  = 0
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    await FallingEdge(dut.i2c_scl)
+    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    assert True
 
 
 
