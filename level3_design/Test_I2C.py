@@ -31,9 +31,9 @@ async def test_seq_bug1(dut):
         await FallingEdge(dut.i2c_scl)
         cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
     if dut.i2c_scl.value == 1:
-        assert True
-    else:
         assert False
+    else:
+        assert True
 
 
 
