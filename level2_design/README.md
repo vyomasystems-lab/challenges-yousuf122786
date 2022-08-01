@@ -1,4 +1,4 @@
-# Co-Processor(Level2_Design)
+# BIT Co-Processor(Level2_Design)
 
 ## Test Scenario *(Important)*
 - Test Inputs: mav_putvalue_src1 = 0x015
