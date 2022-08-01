@@ -1,50 +1,29 @@
 # Sequence Detector(Level1Design2)
 
 ## Test Scenario *(Important)*
-- Test Inputs: 111011 and 1011011 (overlaping Sequence)
-- Expected Output: Machine should detect sequence for overlapping sequence
-- Observed Output in the DUT dut.out = Sequence not detected for overlapping sequence 
+- Test Inputs: mav_putvalue_src1 = 0x015
+    mav_putvalue_src2 = 0x0
+    mav_putvalue_src3 = 0x0
+    mav_putvalue_instr = 0x101010B3
+    Here i have assigned values to the instruction code of the processor as an array to perform multiple operations using while loop  in the testbench.
+- Expected Output: The respective output should be produced based upon the instruction code.
+- Observed Output in the DUT dut.output = output is mismatched 
 
-Output mismatches for the above inputs proving that there is a design bug
+Output mismatches for the above inputs proving that there is a bug in the design.
 
 ## Design Bug
 Based on the above test input and analysing the design, we see the following test fail due to some bug
-![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Seq_Fail.png)
+![](https://github.com/vyomasystems-lab/challenges-yousuf122786/blob/master/Images/Screenshot_5.jpg)
 
-      SEQ_1:
-      begin
-        if(inp_bit == 1)
-          next_state = IDLE;    <== Bug
-        else
-
-
-      SEQ_101:
-      begin
-        if(inp_bit == 1)
-          next_state = SEQ_1011;
-        else
-          next_state = IDLE;     <== BUG
-
-
-    SEQ_1011:
-        next_state = IDLE;    <== BUG
-
-
-So assigning ``next_state = SEQ_1;`` in else of SEQ_1 state, assigning ``next_state = SEQ_10;`` in else of SEQ_101 state and putting if condition ``if(inp_bit == 1)
-        next_state = SEQ_1;
-      else
-        next_state = SEQ_10;
-      end`` in SEQ_1011 state fixed the bug.
 
 ## Design Fix
-Updating the design and re-running the test makes the test pass.
+Tried to fix the bug but i was unable to fix it at the end. It is out of my scope.
 
-![](https://github.com/vyomasystems-lab/challenges-mshafi7/blob/master/Images/Seq_Pass.png)
 
-The updated design is checked in as seq_detect_1011_Fix.v
 
 ## Verification Strategy
-By drawing the FSM of the overlapping sequence(1011) and checking all possible overlapping sequences as test vectors. 
+By driving the all possible instruction codes as test vectors, observe the output based upon the respective operation it should be perform and compare that with what exactly it should perform.
+As there are bugs in the code test failed.
 
 ## Is the verification complete ?
 - Yes Verification is complete

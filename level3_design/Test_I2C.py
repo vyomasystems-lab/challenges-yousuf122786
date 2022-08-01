@@ -27,46 +27,13 @@ async def test_seq_bug1(dut):
     await FallingEdge(dut.clk)  
     dut.rst.value = 0
     await FallingEdge(dut.clk)
-    await RisingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    dut.i2c_sda.value  = 0
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    await FallingEdge(dut.i2c_scl)
-    cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
-    assert True
+    for i in range(18):
+        await FallingEdge(dut.i2c_scl)
+        cocotb.log.info(f'i2c_sda = {dut.i2c_sda.value}')
+    if dut.i2c_scl.value == 1:
+        assert True
+    else:
+        assert False
 
 
 
